@@ -1,0 +1,13 @@
+#!/bin/bash
+
+[[ $TESTML_ROOT ]] || {
+    echo "TestML not installed/enabled"
+    exit 1
+}
+
+echo '=== Testing with Python unittest runtime'
+testml-python test*.tml
+
+echo
+echo '=== Testing with TAP runtime'
+testml-python-tap test*.tml

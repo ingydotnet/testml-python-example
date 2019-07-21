@@ -1,0 +1,26 @@
+"Testing '{*input}' -> something == '{*output}'":
+  *input.something('*BOOM*') == *output
+
+
+=== Test 1
+--- input: foo %BOM% bar
+--- output: foo *BOOM* bar
+
+
+=== Test 2
+--- input
+one
+%BOM%
+two
+%BOM%
+three
+--- output(<)
+    one
+    *BOOM*
+    two
+    *BOOM*
+    three
+--- match(@/)
+one
+two
+three
